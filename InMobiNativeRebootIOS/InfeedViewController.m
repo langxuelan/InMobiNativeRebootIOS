@@ -127,10 +127,11 @@ CGRect primaryImageViewFrame;
         cell.ctaLabel.text = currentNativeAd.adCtaText;
         cell.primaryImageView.image = [UIImage imageNamed:@"placeholder.png"];
 
+        UIView* adContainerView = [[UIView alloc] initWithFrame:primaryImageViewFrame];
         UIView* AdPrimaryViewOfCorrectWidth = [currentNativeAd primaryViewOfWidth:primaryImageViewWidth];
-        AdPrimaryViewOfCorrectWidth.frame = primaryImageViewFrame;
         [AdPrimaryViewOfCorrectWidth setBackgroundColor:[UIColor whiteColor]];
-        [cell addSubview:AdPrimaryViewOfCorrectWidth];
+        [adContainerView addSubview:AdPrimaryViewOfCorrectWidth];
+        [cell addSubview:adContainerView];
 //
 //        UITapGestureRecognizer *singleTapAndOpenLandingPage = [[UITapGestureRecognizer alloc] initWithTarget:currentNativeAd action:@selector(reportAdClickAndOpenLandingPage)];
 //        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:currentNativeAd action:@selector(reportAdClick)];
